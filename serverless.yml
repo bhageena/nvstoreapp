@@ -1,0 +1,20 @@
+service: nvstore-service
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: ap-south-1
+  memorySize: 512
+
+functions:
+  nvstoreFunc:
+    handler: app.handler
+    events:
+      - http:
+          path: nvstore
+          method: get
+      - http:
+          path: nvstore
+          method: put
+plugins:
+  - serverless-offline
