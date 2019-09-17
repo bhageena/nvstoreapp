@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // Get the rows with highest number in value column 
 app.get('/nvstore/', (req, res) => {
-  const query = 'SELECT name, MAX(value) as value FROM nv_store group by name'
+  const query = 'SELECT  name, value  FROM  nv_store ORDER BY value  DESC, id desc LIMIT 1'
   pool.query(query, (err, results, fields) => {
     if (err) {
       const response = { data: null, message: err.message, }
@@ -20,7 +20,7 @@ app.get('/nvstore/', (req, res) => {
     const nvstores = [...results]
     const response = {
       data: nvstores,
-      message: 'names and highest values successfully retrieved.',
+      message: 'success!',
     }
     res.send(response)
   })

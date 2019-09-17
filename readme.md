@@ -8,12 +8,9 @@
 
 - The PUT operation returns 'OK' if storing the name and value is successful.
 
-- The GET operation returns the (name, value) pairs with the highest *value* in the table.
+- The GET operation returns the (name, value) pair with the highest *value* in the table. In case multiple rows are there matching a single highest value, it will return only the latest one.  
 
- # Caveats:
-
- Name is of text type in DB and in GET request fetching rows with highest value requires a group by.
- Group by on text type is not very performance friendly.
+ 
 
 
 # Sample CURL Commands:
